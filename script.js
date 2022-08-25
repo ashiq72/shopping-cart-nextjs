@@ -8,7 +8,7 @@ cartIcon.onclick = () => {
    cart.classList.add("active");
 };
 // Close cart
-cartIcon.onclick = () => {
+closeCart.onclick = () => {
    cart.classList.remove("active");
 };
 
