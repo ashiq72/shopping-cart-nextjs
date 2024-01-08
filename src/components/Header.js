@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function Header() {
-  //   const { loading, cartItems } = useSelector((state) => state.cart);
+  const { loading, cartItems } = useSelector((state) => state.cart);
   //   const pathname = usePathname();
 
   return (
@@ -15,7 +15,7 @@ export default function Header() {
         </Link>
         <div>
           <span className="cart-badge">
-            {/* {loading ? "" : cartItems.reduce((a, c) => a + c.qty, 0)} */}
+            {loading ? "" : cartItems.reduce((a, c) => a + c.qty, 0)}
           </span>
           <Link href="/cart" className="flex justify-between items-end">
             <svg

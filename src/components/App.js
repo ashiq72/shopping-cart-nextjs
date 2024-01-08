@@ -1,12 +1,33 @@
 "use client";
 
-import CartSidebar from "./CardSidebar";
+import { useDispatch, useSelector } from "react-redux";
+
 import Header from "./Header";
+import { useEffect } from "react";
+import { hideLoading } from "@/redux/slices/cartSlice";
+import { usePathname } from "next/navigation";
+import CartSidebar from "./CardSidebar";
 
 export default function App({ children }) {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(hideLoading());
+  }, [dispatch]);
+  const { cartItems, loading } = useSelector((state) => state.cart);
+  const pathname = usePathname();
+
   return (
     <div>
-      <div className="mr-32">
+      <div
+        className={`${
+          loading
+            ? ""
+            : cartItems.length > 0 &&
+              (pathname === "/" || pathname.indexOf("/product/") >= 0)
+            ? "mr-32"
+            : ""
+        }`}
+      >
         <Header />
         <main className="p-4">{children}</main>
       </div>

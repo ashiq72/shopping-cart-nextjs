@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import ProductRate from "./ProductRate";
+import AddToCart from "./AddToCart";
 
 export default function ProductItem({ product }) {
   return (
@@ -22,7 +23,12 @@ export default function ProductItem({ product }) {
         <ProductRate rate={product.rating} count={product.numReviews} />
         <p className="mb-2">{product.brand}</p>
         <p>{product.price}</p>
-        <button>Add to cart</button>
+        <AddToCart
+          showQty={false}
+          product={product}
+          increasePerClick={true}
+          redirect={false}
+        />
       </div>
     </div>
   );
