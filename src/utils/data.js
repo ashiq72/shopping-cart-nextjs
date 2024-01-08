@@ -6,7 +6,7 @@ export const data = {
       image: "/images/p1.jpg",
       price: 120,
       countInStock: 10,
-      rating: 4.5,
+      rating: 4.3,
       numReviews: 10,
       description: "high quality shirt",
     },
