@@ -2,17 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import ProductRate from "./ProductRate";
-import AddToCart from "./AddToCart";
 
-export default function ProductItem({ product }) {
+function ProductItem({ product }) {
   return (
-    <div className="card">
+    <div className="mb-5 border border-gray-200 rounded shadow-lg">
       <Link href={`/product/${product.id}`}>
         <Image
           src={product.image}
-          alt=""
           width={400}
           height={400}
+          alt={product.name}
           className="rounded shadow object-cover h-96 w-full"
         />
       </Link>
@@ -22,14 +21,11 @@ export default function ProductItem({ product }) {
         </Link>
         <ProductRate rate={product.rating} count={product.numReviews} />
         <p className="mb-2">{product.brand}</p>
-        <p>{product.price}</p>
-        <AddToCart
-          showQty={false}
-          product={product}
-          increasePerClick={true}
-          redirect={false}
-        />
+        <p>${product.price}</p>
+        <button>Add to cart</button>
       </div>
     </div>
   );
 }
+
+export default ProductItem;

@@ -2,29 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply bg-gray-200;
 }
+
 input,
 select,
 textarea {
@@ -51,6 +32,5 @@ textarea {
 }
 
 .caret {
-  @apply w-0 h-0 border-8 border-solid border-transparent border-r-gray-300
-   dark:border-r-gray-900 absolute ml-[73px] -mt-5;
+  @apply w-0 h-0 border-8 border-solid border-transparent border-r-gray-300;
 }
